@@ -1,0 +1,738 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/ComputerNetwork/img/fluid.png">
+  <link rel="icon" href="/ComputerNetwork/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="讓我們深入解釋不同類型的網路，並了解它們在地理範圍上的區別這樣我們可以更清楚地理解它們是如何依據不同的需求來設計和運作的 1. 局部區域網路 (LAN - Local Area Network)局部區域網路 (LAN) 是一種僅覆蓋小範圍區域的網路，通常限於一個明確定義的區域內這種網路通常出現在單一建築物內，或是特定的辦公區域，目的是讓這些區域內的設備能夠彼此連接並共享資源（例如檔案、印表機、應用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[計算機網路 01] 網路類型 (地理範圍)">
+<meta property="og:url" content="https://rexwei1016.github.io/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E9%A1%9E%E5%9E%8B-%E5%9C%B0%E7%90%86%E7%AF%84%E5%9C%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="讓我們深入解釋不同類型的網路，並了解它們在地理範圍上的區別這樣我們可以更清楚地理解它們是如何依據不同的需求來設計和運作的 1. 局部區域網路 (LAN - Local Area Network)局部區域網路 (LAN) 是一種僅覆蓋小範圍區域的網路，通常限於一個明確定義的區域內這種網路通常出現在單一建築物內，或是特定的辦公區域，目的是讓這些區域內的設備能夠彼此連接並共享資源（例如檔案、印表機、應用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-08T13:59:10.000Z">
+<meta property="article:modified_time" content="2025-04-08T13:59:44.616Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="計算機網路">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>[計算機網路 01] 網路類型 (地理範圍) - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/ComputerNetwork/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/ComputerNetwork/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/ComputerNetwork/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rexwei1016.github.io","root":"/ComputerNetwork/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/ComputerNetwork/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/ComputerNetwork/js/utils.js" ></script>
+  <script  src="/ComputerNetwork/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/ComputerNetwork/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/ComputerNetwork/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="[計算機網路 01] 網路類型 (地理範圍)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-08 21:59" pubdate>
+          April 8, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">[計算機網路 01] 網路類型 (地理範圍)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>讓我們深入解釋不同類型的網路，並了解它們在地理範圍上的區別<br>這樣我們可以更清楚地理解它們是如何依據不同的需求來設計和運作的</p>
+<h3 id="1-局部區域網路-LAN-Local-Area-Network"><a href="#1-局部區域網路-LAN-Local-Area-Network" class="headerlink" title="1. 局部區域網路 (LAN - Local Area Network)"></a>1. 局部區域網路 (LAN - Local Area Network)</h3><p><strong>局部區域網路 (LAN)</strong> 是一種僅覆蓋小範圍區域的網路，通常限於一個明確定義的區域內<br>這種網路通常出現在單一建築物內，或是特定的辦公區域，目的是讓這些區域內的設備能夠彼此連接並共享資源（例如檔案、印表機、應用程式等）</p>
+<ul>
+<li><p><strong>範圍</strong>：LAN 一般涵蓋的範圍是較小的地理區域，像是某一層樓、整棟建築，或是某個辦公室空間</p>
+</li>
+<li><p><strong>特點</strong>：</p>
+<ul>
+<li><strong>高速</strong>：由於距離短，LAN 中的設備可以快速地交換資料。</li>
+<li><strong>低成本</strong>：設置和維護相對便宜，因為它只涉及有限的區域和設備。</li>
+<li><strong>設備連接</strong>：LAN 內的設備可以是桌面電腦、筆記型電腦、手機、印表機等，它們通常透過交換機 (switch) 或集線器 (hub) 來連接</li>
+</ul>
+</li>
+<li><p><strong>無線局部區域網路 (WLAN)</strong>：當 LAN 使用無線傳輸技術時，稱為無線局部區域網路 (WLAN) 它利用 Wi-Fi 技術來提供無線連接。這樣用戶就能夠在無需物理線纜的情況下進行網路連接</p>
+</li>
+</ul>
+<h3 id="2-骨幹網路-BN-Backbone-Network"><a href="#2-骨幹網路-BN-Backbone-Network" class="headerlink" title="2. 骨幹網路 (BN - Backbone Network)"></a>2. 骨幹網路 (BN - Backbone Network)</h3><p><strong>骨幹網路 (BN)</strong> 是一種用來連接多個網路的高速網路，它通常用於不同 LAN 或其他小型網路之間的連接<br>將它們集中到一個更大的網路中。骨幹網路提供了高帶寬的連接，並且能夠支援大量資料的傳輸</p>
+<ul>
+<li><p><strong>範圍</strong>：骨幹網路的覆蓋範圍通常比 LAN 要大，它可能跨越數百英尺到數英里，取決於它連接的區域</p>
+</li>
+<li><p><strong>功能</strong>：</p>
+<ul>
+<li><strong>高速度傳輸</strong>：骨幹網路能夠提供比一般 LAN 高得多的傳輸速度，因為它是用來支持更大範圍的網路流量</li>
+<li><strong>連接不同網路</strong>：它將多個 LAN 或其他小範圍網路連接在一起，形成一個更大範圍的網路系統</li>
+<li><strong>網路間的橋樑</strong>：骨幹網路的主要作用是將不同網路的資料流量有效地進行路由與分發</li>
+</ul>
+</li>
+<li><p><strong>範例</strong>：大型企業或學校通常會使用骨幹網路來連接不同的部門或校區</p>
+</li>
+<li><p>骨幹網路也是大多數互聯網服務提供商 (ISP) 之間的核心網路之一</p>
+</li>
+</ul>
+<h3 id="3-廣域網路-WAN-Wide-Area-Network"><a href="#3-廣域網路-WAN-Wide-Area-Network" class="headerlink" title="3. 廣域網路 (WAN - Wide Area Network)"></a>3. 廣域網路 (WAN - Wide Area Network)</h3><p><strong>廣域網路 (WAN)</strong> 是最廣泛的網路類型，它涵蓋了大範圍的地理區域，甚至是整個國家或全球<br>WAN 通常是由多個 LAN 和骨幹網路組成，它使得位於不同地理位置的設備能夠互相連接並進行資料交換。</p>
+<ul>
+<li><p><strong>範圍</strong>：WAN 的覆蓋範圍通常是數百到數千英里，甚至可以跨越國家和洲際</p>
+</li>
+<li><p><strong>特點</strong>：</p>
+<ul>
+<li><strong>跨越廣泛範圍</strong>：WAN 能夠將遠距離地區的網路連接在一起，例如全球性的公司網路、跨國公司的分支機構之間的聯繫。</li>
+<li><strong>需要租用電路</strong>：WAN 通常需要使用租賃的通信電路（例如專線或衛星連接）來實現這些遠距離的連接。</li>
+<li><strong>低速度、高延遲</strong>：由於地理範圍較大，WAN 通常傳輸速度較慢且延遲較高，因此需要更高效的路由和資料壓縮技術來提升性能。</li>
+</ul>
+</li>
+<li><p><strong>範例</strong>：</p>
+<ul>
+<li><strong>互聯網</strong>：全球範圍的網路即是最大規模的 WAN，它連接了全世界數以百萬計的設備並且通過許多骨幹網路和其他 WAN 網路進行資料交換。</li>
+<li><strong>企業跨國網路</strong>：跨國公司利用 WAN 將各地的分公司或辦公室連接起來，實現資源共享和協作。</li>
+</ul>
+</li>
+</ul>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>這三種網路類型的主要區別在於它們的地理範圍：</p>
+<ul>
+<li><strong>LAN</strong> 用於小範圍內的連接，提供高速且低延遲的網路服務。</li>
+<li><strong>BN</strong> 則是將不同 LAN 連接在一起，支援更大範圍的資料傳輸需求。</li>
+<li><strong>WAN</strong> 是最大的網路類型，跨越極大的地理範圍，用來連接世界各地的不同網路系統。</li>
+</ul>
+<p>每種類型的網路都基於不同的需求和技術特點進行設計，從而適應不同範圍和規模的資料交換需求</p>
+<p>接下來，我們將深入了解「根據存取方式分類的網路類型」以及「網路模型」的相關概念</p>
+<h3 id="1-內部網路-Intranet"><a href="#1-內部網路-Intranet" class="headerlink" title="1. 內部網路 (Intranet)"></a>1. 內部網路 (Intranet)</h3><p><strong>內部網路 (Intranet)</strong> 是一種只允許組織內部使用的網路。它利用互聯網的技術來幫助組織內部進行資訊共享，並提供一個集中式的資源平台給員工使用。內部網路是為了提升工作效率，讓員工可以輕鬆訪問和協作各種內部資料。</p>
+<ul>
+<li><p><strong>範圍</strong>：只限於組織內部，通常是局部區域網路（LAN）的一種應用。</p>
+</li>
+<li><p><strong>功能</strong>：</p>
+<ul>
+<li><strong>資訊共享</strong>：員工可以在內部網路上查看預算報告、日曆、薪資單等，這些都是組織內部專屬的資源。</li>
+<li><strong>安全性</strong>：內部網路通常只有經過授權的使用者（例如組織的員工）才能進入，確保資訊不會外洩。</li>
+<li><strong>私密性</strong>：由於其只對內部人員開放，內部網路能夠保護組織的機密資料。</li>
+</ul>
+</li>
+<li><p><strong>範例</strong>：</p>
+<ul>
+<li>一間公司可能會設置一個內部網路，員工可以透過它來查看公司的內部通知、提交報告，或使用共享的文件和應用程式。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-外部網路-Extranet"><a href="#2-外部網路-Extranet" class="headerlink" title="2. 外部網路 (Extranet)"></a>2. 外部網路 (Extranet)</h3><p><strong>外部網路 (Extranet)</strong> 則是一種允許外部使用者訪問組織內部部分資源的網路。它利用互聯網的技術來實現跨組織間的資訊交換，並且只有經過授權的外部使用者（如合作夥伴、供應商或客戶）能夠訪問。</p>
+<ul>
+<li><p><strong>範圍</strong>：外部網路是由內部網路的部分資源所構成，但它是通過互聯網來進行的，並且允許外部人員（如供應商或客戶）訪問。</p>
+</li>
+<li><p><strong>功能</strong>：</p>
+<ul>
+<li><strong>跨組織協作</strong>：通過外部網路，組織可以與其他公司或供應商進行資料共享與協作。例如，供應商可以查閱公司的庫存資訊或價格表。</li>
+<li><strong>受限訪問</strong>：外部網路是有選擇性開放的，只有被授權的外部使用者才能進入，確保資料安全。</li>
+<li><strong>方便性</strong>：無論外部使用者身處何地，只要有網路連接，就可以訪問與他們相關的資訊。</li>
+</ul>
+</li>
+<li><p><strong>範例</strong>：</p>
+<ul>
+<li>例如，某家公司設有外部網路，允許其供應商和客戶透過網頁介面查看和更新訂單狀態，或查詢庫存資訊。</li>
+</ul>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/ComputerNetwork/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/" class="category-chain-item">計算機網路</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/ComputerNetwork/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/" class="print-no-link">#計算機網路</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[計算機網路 01] 網路類型 (地理範圍)</div>
+      <div>https://rexwei1016.github.io/2025/04/08/計算機網路-01-網路類型-地理範圍/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 8, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B/" title="[計算機網路 01] 網路模型">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">[計算機網路 01] 網路模型</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E6%98%AF%E4%BB%80%E9%BA%BC/" title="[計算機網路 01] 網路是什麼?">
+                        <span class="hidden-mobile">[計算機網路 01] 網路是什麼?</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/ComputerNetwork/js/events.js" ></script>
+<script  src="/ComputerNetwork/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/ComputerNetwork/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/ComputerNetwork/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/ComputerNetwork/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

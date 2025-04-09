@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/ComputerNetwork/img/fluid.png">
+  <link rel="icon" href="/ComputerNetwork/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Rex">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="✅ Advantages of Layers（層級架構的優點） 1. 模組化設計（Modularity） Networking functionality is modular and the software&#x2F;hardware at any layer can be more easily substituted  💡 說明： 每一層只專注在自己的功能，比如：  實體層：負責實際傳輸">
+<meta property="og:type" content="article">
+<meta property="og:title" content="網路模型的層級化設計（Layered Architecture）">
+<meta property="og:url" content="https://rexwei1016.github.io/2025/04/08/%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B1%A4%E7%B4%9A%E5%8C%96%E8%A8%AD%E8%A8%88%EF%BC%88Layered-Architecture%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="✅ Advantages of Layers（層級架構的優點） 1. 模組化設計（Modularity） Networking functionality is modular and the software&#x2F;hardware at any layer can be more easily substituted  💡 說明： 每一層只專注在自己的功能，比如：  實體層：負責實際傳輸">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-08T14:22:00.000Z">
+<meta property="article:modified_time" content="2025-04-08T15:18:09.819Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="計算機網路">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>網路模型的層級化設計（Layered Architecture） - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/ComputerNetwork/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/ComputerNetwork/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/ComputerNetwork/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rexwei1016.github.io","root":"/ComputerNetwork/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/ComputerNetwork/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/ComputerNetwork/js/utils.js" ></script>
+  <script  src="/ComputerNetwork/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/ComputerNetwork/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/ComputerNetwork/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/ComputerNetwork/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="網路模型的層級化設計（Layered Architecture）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-08 22:22" pubdate>
+          April 8, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          526 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">網路模型的層級化設計（Layered Architecture）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="✅-Advantages-of-Layers（層級架構的優點）"><a href="#✅-Advantages-of-Layers（層級架構的優點）" class="headerlink" title="✅ Advantages of Layers（層級架構的優點）"></a>✅ <strong>Advantages of Layers（層級架構的優點）</strong></h3><hr>
+<h4 id="1-模組化設計（Modularity）"><a href="#1-模組化設計（Modularity）" class="headerlink" title="1. 模組化設計（Modularity）"></a>1. <strong>模組化設計（Modularity）</strong></h4><blockquote>
+<p>Networking functionality is modular and the software&#x2F;hardware at any layer can be more easily substituted</p>
+</blockquote>
+<h5 id="💡-說明："><a href="#💡-說明：" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul>
+<li><p>每一層只專注在自己的功能，比如：</p>
+<ul>
+<li>實體層：負責實際傳輸（例如光纖、電纜）</li>
+<li>資料鏈結層：處理 MAC 位址、錯誤偵測</li>
+<li>傳輸層：處理可靠傳輸、流量控制</li>
+</ul>
+</li>
+<li><p><strong>模組化代表：</strong> 一層改變不會影響其他層</p>
+</li>
+</ul>
+<h5 id="📦-範例："><a href="#📦-範例：" class="headerlink" title="📦 範例："></a>📦 範例：</h5><blockquote>
+<p><strong>Substitute wired for wireless at the physical layer</strong><br>你可以把原本用網路線的 LAN，換成 Wi-Fi，只需改變<strong>實體層硬體</strong>，上層像 TCP、HTTP 都不受影響。</p>
+</blockquote>
+<hr>
+<h4 id="2-方便除錯與維護"><a href="#2-方便除錯與維護" class="headerlink" title="2. 方便除錯與維護"></a>2. <strong>方便除錯與維護</strong></h4><blockquote>
+<p>Easier to troubleshoot or make changes to one layer at a time</p>
+</blockquote>
+<h5 id="💡-說明：-1"><a href="#💡-說明：-1" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul>
+<li>有問題時，只需針對那一層進行檢查與修正。<ul>
+<li>比如：若 TCP 連線斷掉，只查「傳輸層」的連線狀態。</li>
+</ul>
+</li>
+<li>類似物件導向中的封裝與責任分離。</li>
+</ul>
+<hr>
+<h4 id="3-讓開發者專注在應用層"><a href="#3-讓開發者專注在應用層" class="headerlink" title="3. 讓開發者專注在應用層"></a>3. <strong>讓開發者專注在應用層</strong></h4><blockquote>
+<p>Application developers only need to worry about the application layer in their programs</p>
+</blockquote>
+<h5 id="💡-說明：-2"><a href="#💡-說明：-2" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul>
+<li>你寫 Web 應用程式時，只要懂 HTTP、API，根本不需處理底層封包、路由、MAC。</li>
+<li>上層不需知道底層是 IPv4、IPv6、光纖或電纜，<strong>抽象化帶來開發效率提升。</strong></li>
+</ul>
+<hr>
+<h3 id="❌-Disadvantages-of-Layers（層級架構的缺點）"><a href="#❌-Disadvantages-of-Layers（層級架構的缺點）" class="headerlink" title="❌ Disadvantages of Layers（層級架構的缺點）"></a>❌ <strong>Disadvantages of Layers（層級架構的缺點）</strong></h3><hr>
+<h4 id="1-效率不佳：每層封裝都需處理"><a href="#1-效率不佳：每層封裝都需處理" class="headerlink" title="1. 效率不佳：每層封裝都需處理"></a>1. <strong>效率不佳：每層封裝都需處理</strong></h4><blockquote>
+<p>Inefficient because the encapsulation&#x2F;de-encapsulation at each layer requires processing</p>
+</blockquote>
+<h5 id="💡-說明：-3"><a href="#💡-說明：-3" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul>
+<li>傳送端：資料要一層層「包裝」（Encapsulation）</li>
+<li>接收端：要一層層「拆封」（Decapsulation）</li>
+<li>每一層都需 CPU 處理，增加延遲與資源使用</li>
+</ul>
+<h5 id="📦-範例：-1"><a href="#📦-範例：-1" class="headerlink" title="📦 範例："></a>📦 範例：</h5><ul>
+<li>一個小訊息，經 TCP 加標頭、IP 加標頭、Ethernet 加標頭……處理時間累積起來，效能下降</li>
+</ul>
+<hr>
+<h4 id="2-封裝導致的額外負擔（Overhead）"><a href="#2-封裝導致的額外負擔（Overhead）" class="headerlink" title="2. 封裝導致的額外負擔（Overhead）"></a>2. <strong>封裝導致的額外負擔（Overhead）</strong></h4><blockquote>
+<p>Inefficient because encapsulation in a PDU increases overhead at each layer</p>
+</blockquote>
+<h5 id="💡-說明：-4"><a href="#💡-說明：-4" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul>
+<li>每層 PDU 都會加上額外資訊（如標頭 Header）</li>
+<li>傳輸一個小訊息時，「控制資訊」可能比實際資料還多！</li>
+</ul>
+<h5 id="📦-範例：-2"><a href="#📦-範例：-2" class="headerlink" title="📦 範例："></a>📦 範例：</h5><ul>
+<li>傳送「OK」兩個字，實際封包可能有 40~60 byte 的 header，加總超過內容本身。</li>
+</ul>
+<hr>
+<h2 id="🧠-小結（整理成表格）"><a href="#🧠-小結（整理成表格）" class="headerlink" title="🧠 小結（整理成表格）"></a>🧠 小結（整理成表格）</h2><table>
+<thead>
+<tr>
+<th>分層優點</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模組化</td>
+<td>每層獨立、可替換</td>
+</tr>
+<tr>
+<td>易於維護</td>
+<td>問題可侷限在單一層處理</td>
+</tr>
+<tr>
+<td>易於開發</td>
+<td>上層應用程式不需懂底層</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>分層缺點</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>處理負擔重</td>
+<td>每層封裝&#x2F;拆封需 CPU 處理</td>
+</tr>
+<tr>
+<td>效能浪費</td>
+<td>各層 Header 增加封包大小，浪費頻寬與延遲</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/ComputerNetwork/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/" class="category-chain-item">計算機網路</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/ComputerNetwork/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/" class="print-no-link">#計算機網路</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>網路模型的層級化設計（Layered Architecture）</div>
+      <div>https://rexwei1016.github.io/2025/04/08/網路模型的層級化設計（Layered-Architecture）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Rex</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 8, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF02-Protocol/" title="[計算機網路 02]  Protocol">
+                        <span class="hidden-mobile">[計算機網路 02]  Protocol</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/ComputerNetwork/js/events.js" ></script>
+<script  src="/ComputerNetwork/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/ComputerNetwork/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/ComputerNetwork/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/ComputerNetwork/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

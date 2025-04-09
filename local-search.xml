@@ -4,13 +4,125 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/ComputerNetwork/2025/04/09/hello-world/"/>
-    <url>/ComputerNetwork/2025/04/09/hello-world/</url>
+    <title>網路模型的層級化設計（Layered Architecture）</title>
+    <link href="/ComputerNetwork/2025/04/08/%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B1%A4%E7%B4%9A%E5%8C%96%E8%A8%AD%E8%A8%88%EF%BC%88Layered-Architecture%EF%BC%89/"/>
+    <url>/ComputerNetwork/2025/04/08/%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B1%A4%E7%B4%9A%E5%8C%96%E8%A8%AD%E8%A8%88%EF%BC%88Layered-Architecture%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="✅-Advantages-of-Layers（層級架構的優點）"><a href="#✅-Advantages-of-Layers（層級架構的優點）" class="headerlink" title="✅ Advantages of Layers（層級架構的優點）"></a>✅ <strong>Advantages of Layers（層級架構的優點）</strong></h3><hr><h4 id="1-模組化設計（Modularity）"><a href="#1-模組化設計（Modularity）" class="headerlink" title="1. 模組化設計（Modularity）"></a>1. <strong>模組化設計（Modularity）</strong></h4><blockquote><p>Networking functionality is modular and the software&#x2F;hardware at any layer can be more easily substituted</p></blockquote><h5 id="💡-說明："><a href="#💡-說明：" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul><li><p>每一層只專注在自己的功能，比如：</p><ul><li>實體層：負責實際傳輸（例如光纖、電纜）</li><li>資料鏈結層：處理 MAC 位址、錯誤偵測</li><li>傳輸層：處理可靠傳輸、流量控制</li></ul></li><li><p><strong>模組化代表：</strong> 一層改變不會影響其他層</p></li></ul><h5 id="📦-範例："><a href="#📦-範例：" class="headerlink" title="📦 範例："></a>📦 範例：</h5><blockquote><p><strong>Substitute wired for wireless at the physical layer</strong><br>你可以把原本用網路線的 LAN，換成 Wi-Fi，只需改變<strong>實體層硬體</strong>，上層像 TCP、HTTP 都不受影響。</p></blockquote><hr><h4 id="2-方便除錯與維護"><a href="#2-方便除錯與維護" class="headerlink" title="2. 方便除錯與維護"></a>2. <strong>方便除錯與維護</strong></h4><blockquote><p>Easier to troubleshoot or make changes to one layer at a time</p></blockquote><h5 id="💡-說明：-1"><a href="#💡-說明：-1" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul><li>有問題時，只需針對那一層進行檢查與修正。<ul><li>比如：若 TCP 連線斷掉，只查「傳輸層」的連線狀態。</li></ul></li><li>類似物件導向中的封裝與責任分離。</li></ul><hr><h4 id="3-讓開發者專注在應用層"><a href="#3-讓開發者專注在應用層" class="headerlink" title="3. 讓開發者專注在應用層"></a>3. <strong>讓開發者專注在應用層</strong></h4><blockquote><p>Application developers only need to worry about the application layer in their programs</p></blockquote><h5 id="💡-說明：-2"><a href="#💡-說明：-2" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul><li>你寫 Web 應用程式時，只要懂 HTTP、API，根本不需處理底層封包、路由、MAC。</li><li>上層不需知道底層是 IPv4、IPv6、光纖或電纜，<strong>抽象化帶來開發效率提升。</strong></li></ul><hr><h3 id="❌-Disadvantages-of-Layers（層級架構的缺點）"><a href="#❌-Disadvantages-of-Layers（層級架構的缺點）" class="headerlink" title="❌ Disadvantages of Layers（層級架構的缺點）"></a>❌ <strong>Disadvantages of Layers（層級架構的缺點）</strong></h3><hr><h4 id="1-效率不佳：每層封裝都需處理"><a href="#1-效率不佳：每層封裝都需處理" class="headerlink" title="1. 效率不佳：每層封裝都需處理"></a>1. <strong>效率不佳：每層封裝都需處理</strong></h4><blockquote><p>Inefficient because the encapsulation&#x2F;de-encapsulation at each layer requires processing</p></blockquote><h5 id="💡-說明：-3"><a href="#💡-說明：-3" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul><li>傳送端：資料要一層層「包裝」（Encapsulation）</li><li>接收端：要一層層「拆封」（Decapsulation）</li><li>每一層都需 CPU 處理，增加延遲與資源使用</li></ul><h5 id="📦-範例：-1"><a href="#📦-範例：-1" class="headerlink" title="📦 範例："></a>📦 範例：</h5><ul><li>一個小訊息，經 TCP 加標頭、IP 加標頭、Ethernet 加標頭……處理時間累積起來，效能下降</li></ul><hr><h4 id="2-封裝導致的額外負擔（Overhead）"><a href="#2-封裝導致的額外負擔（Overhead）" class="headerlink" title="2. 封裝導致的額外負擔（Overhead）"></a>2. <strong>封裝導致的額外負擔（Overhead）</strong></h4><blockquote><p>Inefficient because encapsulation in a PDU increases overhead at each layer</p></blockquote><h5 id="💡-說明：-4"><a href="#💡-說明：-4" class="headerlink" title="💡 說明："></a>💡 說明：</h5><ul><li>每層 PDU 都會加上額外資訊（如標頭 Header）</li><li>傳輸一個小訊息時，「控制資訊」可能比實際資料還多！</li></ul><h5 id="📦-範例：-2"><a href="#📦-範例：-2" class="headerlink" title="📦 範例："></a>📦 範例：</h5><ul><li>傳送「OK」兩個字，實際封包可能有 40~60 byte 的 header，加總超過內容本身。</li></ul><hr><h2 id="🧠-小結（整理成表格）"><a href="#🧠-小結（整理成表格）" class="headerlink" title="🧠 小結（整理成表格）"></a>🧠 小結（整理成表格）</h2><table><thead><tr><th>分層優點</th><th>說明</th></tr></thead><tbody><tr><td>模組化</td><td>每層獨立、可替換</td></tr><tr><td>易於維護</td><td>問題可侷限在單一層處理</td></tr><tr><td>易於開發</td><td>上層應用程式不需懂底層</td></tr></tbody></table><table><thead><tr><th>分層缺點</th><th>說明</th></tr></thead><tbody><tr><td>處理負擔重</td><td>每層封裝&#x2F;拆封需 CPU 處理</td></tr><tr><td>效能浪費</td><td>各層 Header 增加封包大小，浪費頻寬與延遲</td></tr></tbody></table>]]></content>
     
     
+    <categories>
+      
+      <category>計算機網路</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>計算機網路</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[計算機網路 02]  Protocol</title>
+    <link href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF02-Protocol/"/>
+    <url>/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF02-Protocol/</url>
+    
+    <content type="html"><![CDATA[<h3 id="🔹-Protocol（通訊協定）"><a href="#🔹-Protocol（通訊協定）" class="headerlink" title="🔹 Protocol（通訊協定）"></a>🔹 <strong>Protocol（通訊協定）</strong></h3><blockquote><p><strong>Protocol defines the language of transmission</strong><br>→ 協定定義了資料傳輸的「語言」</p></blockquote><h4 id="解釋："><a href="#解釋：" class="headerlink" title="解釋："></a>解釋：</h4><ul><li>通訊協定就是「不同系統之間溝通的共同語言與規則」。</li><li>它們定義：<ul><li><strong>格式（Format）</strong>：資料怎麼包裝（如 JSON、XML）</li><li><strong>規則（Rules）</strong>：什麼時候傳？怎麼應答？</li><li><strong>功能（Functionality）</strong>：例如錯誤檢查、重傳、加密等</li></ul></li></ul><h4 id="📌-舉例："><a href="#📌-舉例：" class="headerlink" title="📌 舉例："></a>📌 舉例：</h4><ul><li>TCP（傳輸控制協定）：可靠傳輸、重送機制</li><li>HTTP（網頁協定）：用於網頁瀏覽器與伺服器間的資料交換</li></ul><hr><h3 id="🔹-Protocol-Data-Unit-PDU"><a href="#🔹-Protocol-Data-Unit-PDU" class="headerlink" title="🔹 Protocol Data Unit (PDU)"></a>🔹 <strong>Protocol Data Unit (PDU)</strong></h3><blockquote><p><strong>PDU contains layer-specific information necessary for a message to be transmitted through a network</strong><br>→ 協定資料單元包含了「特定層級」需要的資訊，才能正確傳輸訊息。</p></blockquote><h4 id="💡-解釋："><a href="#💡-解釋：" class="headerlink" title="💡 解釋："></a>💡 解釋：</h4><ul><li>PDU 是「資料封包的單位」，每一層在處理資料時都會加入自己的資訊。</li><li>不同層有不同的 PDU 名稱：<ul><li>應用層 ➜ 資料（Data）</li><li>傳輸層 ➜ 區段（Segment）</li><li>網路層 ➜ 封包（Packet）</li><li>資料鏈結層 ➜ 框架（Frame）</li></ul></li></ul><hr><h3 id="🔸-每一層都會加上自己的-PDU"><a href="#🔸-每一層都會加上自己的-PDU" class="headerlink" title="🔸 每一層都會加上自己的 PDU"></a>🔸 每一層都會加上自己的 PDU</h3><blockquote><p><strong>Each layer adds a PDU</strong></p></blockquote><ul><li>例如你在瀏覽器輸入網址，資料從應用層一路往下，TCP 加上 port 資訊，IP 加上 IP 位址，Ethernet 加上 MAC 位址… 一層層包起來。</li></ul><hr><h3 id="🔸-PDU-就像「巢狀信封」"><a href="#🔸-PDU-就像「巢狀信封」" class="headerlink" title="🔸 PDU 就像「巢狀信封」"></a>🔸 PDU 就像「巢狀信封」</h3><blockquote><p><strong>PDUs act like nested envelopes</strong></p></blockquote><h4 id="💡-解釋：-1"><a href="#💡-解釋：-1" class="headerlink" title="💡 解釋："></a>💡 解釋：</h4><ul><li>想像你寫了一封信（應用層資料），</li><li>把它裝進一個信封（TCP 區段），</li><li>外面再包一層大的信封（IP 封包），</li><li>最後貼上地址與收件人（乙太網框架）寄出。</li></ul><hr><h3 id="🔸-Encapsulation（封裝）"><a href="#🔸-Encapsulation（封裝）" class="headerlink" title="🔸 Encapsulation（封裝）"></a>🔸 <strong>Encapsulation（封裝）</strong></h3><blockquote><p><strong>Occurs when a higher level PDU is placed inside of a lower level PDU</strong></p></blockquote><h4 id="💡-解釋：-2"><a href="#💡-解釋：-2" class="headerlink" title="💡 解釋："></a>💡 解釋：</h4><ul><li>「封裝」就是把上一層的資料當作 payload，包在下一層的 PDU 裡面。</li><li>每經過一層，就加上一層「包裝紙」。</li><li>封裝是資料往下走的過程；資料從另一端進來時則是解封裝（Decapsulation）。</li></ul><h4 id="📌-舉例：-1"><a href="#📌-舉例：-1" class="headerlink" title="📌 舉例："></a>📌 舉例：</h4><ol><li><p>你傳送一封 Email：</p><ul><li>應用層：你的信件內容（Email）</li><li>傳輸層：加上 TCP 標頭（source&#x2F;destination port）</li><li>網路層：加上 IP 標頭（source&#x2F;destination IP）</li><li>資料鏈結層：加上 MAC 地址與 frame 頭尾</li></ul></li><li><p>對方收到封包時，從最外層開始一層層「拆信」還原資料</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>計算機網路</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>計算機網路</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[計算機網路 01] 網路模型</title>
+    <link href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B/"/>
+    <url>/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E6%A8%A1%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-網路模型-Network-Models"><a href="#1-網路模型-Network-Models" class="headerlink" title="1. 網路模型 (Network Models)"></a>1. 網路模型 (Network Models)</h3><p><strong>網路模型 (Network Models)</strong> 用來劃分和組織網路通信中的各種功能<br>這些模型將網路的通信過程分成多層，每層負責不同的任務，這樣可以有效地管理和處理網路中的資料傳送<br>最著名的網路模型有 <strong>OSI 模型</strong> 和 <strong>Internet 模型 (TCP&#x2F;IP 模型)</strong>。</p><h4 id="OSI-模型-Open-Systems-Interconnection-Model"><a href="#OSI-模型-Open-Systems-Interconnection-Model" class="headerlink" title="OSI 模型 (Open Systems Interconnection Model)"></a>OSI 模型 (Open Systems Interconnection Model)</h4><p><strong>OSI 模型</strong> 是一種由國際標準化組織 (ISO) 設計的網路架構模型，將網路通信過程劃分為七層，每一層都有特定的功能和任務。這七層分別是：</p><ol><li><strong>物理層 (Physical Layer)</strong>：處理實體設備的傳輸，像是電纜、光纖或無線信號等</li><li><strong>資料鏈結層 (Data Link Layer)</strong>：負責建立、管理和斷開與鄰近設備的鏈結，並提供錯誤檢查與修正</li><li><strong>網路層 (Network Layer)</strong>：負責尋找並確定資料傳輸的路徑（即路由選擇）</li><li><strong>傳輸層 (Transport Layer)</strong>：確保資料從發送端到接收端的完整性，並控制資料流量</li><li><strong>會議層 (Session Layer)</strong>：管理與協調應用程式之間的通信會話</li><li><strong>表示層 (Presentation Layer)</strong>：負責資料的格式轉換和編碼，確保不同系統之間的資料能正確理解</li><li><strong>應用層 (Application Layer)</strong>：用戶和應用程式與網路進行交互的層，處理如 HTTP、FTP 等協議</li></ol><h4 id="TCP-IP-模型"><a href="#TCP-IP-模型" class="headerlink" title="TCP&#x2F;IP 模型"></a>TCP&#x2F;IP 模型</h4><p><strong>TCP&#x2F;IP 模型</strong> 是實際上在網際網路中使用的模型，它與 OSI 模型有相似之處，但更簡化。這個模型包含四個層次：</p><ol><li><strong>應用層 (Application Layer)</strong>：處理使用者和應用程式之間的資料交換，對應 OSI 模型的應用層、表示層和會議層。</li><li><strong>傳輸層 (Transport Layer)</strong>：負責資料的可靠傳輸，常見的協議有 TCP 和 UDP。</li><li><strong>網路層 (Internet Layer)</strong>：負責處理資料的路由和尋址，對應於 OSI 模型的網路層。</li><li><strong>鏈結層 (Link Layer)</strong>：負責設備間的物理連接和資料傳輸，對應 OSI 模型的資料鏈結層和物理層。</li></ol><h4 id="OSI-模型-vs-TCP-IP-模型"><a href="#OSI-模型-vs-TCP-IP-模型" class="headerlink" title="OSI 模型 vs TCP&#x2F;IP 模型"></a>OSI 模型 vs TCP&#x2F;IP 模型</h4><ul><li><strong>OSI 模型</strong> 更為理論化，定義了七層，而 <strong>TCP&#x2F;IP 模型</strong> 更簡單，將功能合併成四層</li><li>在實際應用中，<strong>TCP&#x2F;IP 模型</strong> 被認為是最常見的實作模型，因為它符合當今互聯網的工作方式</li></ul><h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul><li><strong>網路模型</strong> 主要幫助我們理解網路通信的運作方式</li><li>最著名的模型包括 OSI 模型和 TCP&#x2F;IP 模型</li><li>這些模型將網路通信分為不同的層級，每層專注於不同的功能</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>計算機網路</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>計算機網路</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[計算機網路 01] 網路類型 (地理範圍)</title>
+    <link href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E9%A1%9E%E5%9E%8B-%E5%9C%B0%E7%90%86%E7%AF%84%E5%9C%8D/"/>
+    <url>/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E9%A1%9E%E5%9E%8B-%E5%9C%B0%E7%90%86%E7%AF%84%E5%9C%8D/</url>
+    
+    <content type="html"><![CDATA[<p>讓我們深入解釋不同類型的網路，並了解它們在地理範圍上的區別<br>這樣我們可以更清楚地理解它們是如何依據不同的需求來設計和運作的</p><h3 id="1-局部區域網路-LAN-Local-Area-Network"><a href="#1-局部區域網路-LAN-Local-Area-Network" class="headerlink" title="1. 局部區域網路 (LAN - Local Area Network)"></a>1. 局部區域網路 (LAN - Local Area Network)</h3><p><strong>局部區域網路 (LAN)</strong> 是一種僅覆蓋小範圍區域的網路，通常限於一個明確定義的區域內<br>這種網路通常出現在單一建築物內，或是特定的辦公區域，目的是讓這些區域內的設備能夠彼此連接並共享資源（例如檔案、印表機、應用程式等）</p><ul><li><p><strong>範圍</strong>：LAN 一般涵蓋的範圍是較小的地理區域，像是某一層樓、整棟建築，或是某個辦公室空間</p></li><li><p><strong>特點</strong>：</p><ul><li><strong>高速</strong>：由於距離短，LAN 中的設備可以快速地交換資料。</li><li><strong>低成本</strong>：設置和維護相對便宜，因為它只涉及有限的區域和設備。</li><li><strong>設備連接</strong>：LAN 內的設備可以是桌面電腦、筆記型電腦、手機、印表機等，它們通常透過交換機 (switch) 或集線器 (hub) 來連接</li></ul></li><li><p><strong>無線局部區域網路 (WLAN)</strong>：當 LAN 使用無線傳輸技術時，稱為無線局部區域網路 (WLAN) 它利用 Wi-Fi 技術來提供無線連接。這樣用戶就能夠在無需物理線纜的情況下進行網路連接</p></li></ul><h3 id="2-骨幹網路-BN-Backbone-Network"><a href="#2-骨幹網路-BN-Backbone-Network" class="headerlink" title="2. 骨幹網路 (BN - Backbone Network)"></a>2. 骨幹網路 (BN - Backbone Network)</h3><p><strong>骨幹網路 (BN)</strong> 是一種用來連接多個網路的高速網路，它通常用於不同 LAN 或其他小型網路之間的連接<br>將它們集中到一個更大的網路中。骨幹網路提供了高帶寬的連接，並且能夠支援大量資料的傳輸</p><ul><li><p><strong>範圍</strong>：骨幹網路的覆蓋範圍通常比 LAN 要大，它可能跨越數百英尺到數英里，取決於它連接的區域</p></li><li><p><strong>功能</strong>：</p><ul><li><strong>高速度傳輸</strong>：骨幹網路能夠提供比一般 LAN 高得多的傳輸速度，因為它是用來支持更大範圍的網路流量</li><li><strong>連接不同網路</strong>：它將多個 LAN 或其他小範圍網路連接在一起，形成一個更大範圍的網路系統</li><li><strong>網路間的橋樑</strong>：骨幹網路的主要作用是將不同網路的資料流量有效地進行路由與分發</li></ul></li><li><p><strong>範例</strong>：大型企業或學校通常會使用骨幹網路來連接不同的部門或校區</p></li><li><p>骨幹網路也是大多數互聯網服務提供商 (ISP) 之間的核心網路之一</p></li></ul><h3 id="3-廣域網路-WAN-Wide-Area-Network"><a href="#3-廣域網路-WAN-Wide-Area-Network" class="headerlink" title="3. 廣域網路 (WAN - Wide Area Network)"></a>3. 廣域網路 (WAN - Wide Area Network)</h3><p><strong>廣域網路 (WAN)</strong> 是最廣泛的網路類型，它涵蓋了大範圍的地理區域，甚至是整個國家或全球<br>WAN 通常是由多個 LAN 和骨幹網路組成，它使得位於不同地理位置的設備能夠互相連接並進行資料交換。</p><ul><li><p><strong>範圍</strong>：WAN 的覆蓋範圍通常是數百到數千英里，甚至可以跨越國家和洲際</p></li><li><p><strong>特點</strong>：</p><ul><li><strong>跨越廣泛範圍</strong>：WAN 能夠將遠距離地區的網路連接在一起，例如全球性的公司網路、跨國公司的分支機構之間的聯繫。</li><li><strong>需要租用電路</strong>：WAN 通常需要使用租賃的通信電路（例如專線或衛星連接）來實現這些遠距離的連接。</li><li><strong>低速度、高延遲</strong>：由於地理範圍較大，WAN 通常傳輸速度較慢且延遲較高，因此需要更高效的路由和資料壓縮技術來提升性能。</li></ul></li><li><p><strong>範例</strong>：</p><ul><li><strong>互聯網</strong>：全球範圍的網路即是最大規模的 WAN，它連接了全世界數以百萬計的設備並且通過許多骨幹網路和其他 WAN 網路進行資料交換。</li><li><strong>企業跨國網路</strong>：跨國公司利用 WAN 將各地的分公司或辦公室連接起來，實現資源共享和協作。</li></ul></li></ul><h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>這三種網路類型的主要區別在於它們的地理範圍：</p><ul><li><strong>LAN</strong> 用於小範圍內的連接，提供高速且低延遲的網路服務。</li><li><strong>BN</strong> 則是將不同 LAN 連接在一起，支援更大範圍的資料傳輸需求。</li><li><strong>WAN</strong> 是最大的網路類型，跨越極大的地理範圍，用來連接世界各地的不同網路系統。</li></ul><p>每種類型的網路都基於不同的需求和技術特點進行設計，從而適應不同範圍和規模的資料交換需求</p><p>接下來，我們將深入了解「根據存取方式分類的網路類型」以及「網路模型」的相關概念</p><h3 id="1-內部網路-Intranet"><a href="#1-內部網路-Intranet" class="headerlink" title="1. 內部網路 (Intranet)"></a>1. 內部網路 (Intranet)</h3><p><strong>內部網路 (Intranet)</strong> 是一種只允許組織內部使用的網路。它利用互聯網的技術來幫助組織內部進行資訊共享，並提供一個集中式的資源平台給員工使用。內部網路是為了提升工作效率，讓員工可以輕鬆訪問和協作各種內部資料。</p><ul><li><p><strong>範圍</strong>：只限於組織內部，通常是局部區域網路（LAN）的一種應用。</p></li><li><p><strong>功能</strong>：</p><ul><li><strong>資訊共享</strong>：員工可以在內部網路上查看預算報告、日曆、薪資單等，這些都是組織內部專屬的資源。</li><li><strong>安全性</strong>：內部網路通常只有經過授權的使用者（例如組織的員工）才能進入，確保資訊不會外洩。</li><li><strong>私密性</strong>：由於其只對內部人員開放，內部網路能夠保護組織的機密資料。</li></ul></li><li><p><strong>範例</strong>：</p><ul><li>一間公司可能會設置一個內部網路，員工可以透過它來查看公司的內部通知、提交報告，或使用共享的文件和應用程式。</li></ul></li></ul><h3 id="2-外部網路-Extranet"><a href="#2-外部網路-Extranet" class="headerlink" title="2. 外部網路 (Extranet)"></a>2. 外部網路 (Extranet)</h3><p><strong>外部網路 (Extranet)</strong> 則是一種允許外部使用者訪問組織內部部分資源的網路。它利用互聯網的技術來實現跨組織間的資訊交換，並且只有經過授權的外部使用者（如合作夥伴、供應商或客戶）能夠訪問。</p><ul><li><p><strong>範圍</strong>：外部網路是由內部網路的部分資源所構成，但它是通過互聯網來進行的，並且允許外部人員（如供應商或客戶）訪問。</p></li><li><p><strong>功能</strong>：</p><ul><li><strong>跨組織協作</strong>：通過外部網路，組織可以與其他公司或供應商進行資料共享與協作。例如，供應商可以查閱公司的庫存資訊或價格表。</li><li><strong>受限訪問</strong>：外部網路是有選擇性開放的，只有被授權的外部使用者才能進入，確保資料安全。</li><li><strong>方便性</strong>：無論外部使用者身處何地，只要有網路連接，就可以訪問與他們相關的資訊。</li></ul></li><li><p><strong>範例</strong>：</p><ul><li>例如，某家公司設有外部網路，允許其供應商和客戶透過網頁介面查看和更新訂單狀態，或查詢庫存資訊。</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>計算機網路</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>計算機網路</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[計算機網路 01] 網路是什麼?</title>
+    <link href="/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E6%98%AF%E4%BB%80%E9%BA%BC/"/>
+    <url>/ComputerNetwork/2025/04/08/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF-01-%E7%B6%B2%E8%B7%AF%E6%98%AF%E4%BB%80%E9%BA%BC/</url>
+    
+    <content type="html"><![CDATA[<p>📚 本篇屬於《<a href="/ComputerNetwork/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/">計算機網路系列文章</a>》<br>👉 回到系列總覽看其他章節</p><h2 id="📖-1-為什麼網路很重要？"><a href="#📖-1-為什麼網路很重要？" class="headerlink" title="📖 1. 為什麼網路很重要？"></a><strong>📖 1. 為什麼網路很重要？</strong></h2><h3 id="💡-核心概念"><a href="#💡-核心概念" class="headerlink" title="💡 核心概念"></a><strong>💡 核心概念</strong></h3><p>網路是<strong>數位世界的基礎設施</strong>，如同現實中的道路、電力系統</p><ul><li><strong>沒有網路</strong>：<ul><li>無法線上支付 → 超市排隊現金結帳大塞車</li><li>企業無法跨國協作 → 跨國公司癱瘓</li><li>急診室無法共享病歷 → 醫療效率下降</li></ul></li></ul><p><strong>客戶端 (Client)</strong>、<strong>伺服器 (Server)</strong> 和 <strong>電路 (Circuit)</strong>，它們是每個網路運作的關鍵</p><h3 id="1-客戶端-Client"><a href="#1-客戶端-Client" class="headerlink" title="1. 客戶端 (Client)"></a>1. 客戶端 (Client)</h3><p><strong>客戶端</strong>指的是用來接入網路的裝置，它可以是任何能夠連接到網路並接收資料的設備<br>這些設備通常是使用者操作並與伺服器進行互動的端點</p><ul><li><strong>範例</strong>：<ul><li><strong>桌上型電腦 (Desktop)</strong>：一台可以直接連接網路的個人電腦</li><li><strong>筆記型電腦 (Laptop)</strong>：同樣能夠連接網路的移動式電腦</li><li><strong>平板電腦 (Tablet)</strong>：無論是 iPad 還是 Android 平板，它們都可以連接到網路，並通過應用程式與伺服器交換資料</li><li><strong>手機 (Cell phone)</strong>：智能手機是當今最普遍的客戶端，能夠接收來自伺服器的資料，並進行各種互動，如瀏覽網頁、使用社交媒體、發送電子郵件等</li></ul></li></ul><p>簡單來說，客戶端就是用來發出請求、接受伺服器回應並顯示內容給使用者看的設備<br>當你在瀏覽網頁或觀看影片時，這些設備便是客戶端，它們需要依賴伺服器來提供所需的內容</p><h3 id="2-伺服器-Server"><a href="#2-伺服器-Server" class="headerlink" title="2. 伺服器 (Server)"></a>2. 伺服器 (Server)</h3><p><strong>伺服器</strong>是一種提供資料與服務的設備，它主要的功能是儲存資料並將資料傳送給需要的客戶端<br>伺服器不像一般的桌面電腦那麼頻繁地被人操作，而是為了在網路中提供資料和處理客戶端的請求而存在</p><ul><li><strong>範例</strong>：<ul><li><strong>網頁伺服器 (Web Server)</strong>：負責儲存網站的所有內容，並將它們傳送給用戶端瀏覽器，當你輸入一個網址並按下「Enter」時，實際上是向網頁伺服器發出請求，伺服器則會回傳相應的網頁資料</li><li><strong>郵件伺服器 (Mail Server)</strong>：負責儲存電子郵件並處理發送和接收郵件的請求。例如，當你發送電子郵件時，郵件伺服器會將這封郵件傳送到收件人的郵件伺服器，並確保郵件能夠正確到達</li><li><strong>檔案伺服器 (File Server)</strong>：儲存文件並提供文件共享服務。企業通常會設有檔案伺服器，讓內部員工可以存取和共享檔案</li></ul></li></ul><p>伺服器是網路的核心部分，它們通常具有更高的處理能力和儲存空間，並且經常是24&#x2F;7全天候運行，確保網路服務不會中斷</p><h3 id="3-電路-Circuit"><a href="#3-電路-Circuit" class="headerlink" title="3. 電路 (Circuit)"></a>3. 電路 (Circuit)</h3><p><strong>電路</strong>指的是客戶端與伺服器之間的通訊路徑，簡單來說，它就是一條連接客戶端和伺服器的橋樑<br>不同的電路傳輸方式，會影響數據傳輸的速度、穩定性和距離等</p><ul><li><strong>範例</strong>：<ul><li><strong>銅線 (Copper wire)</strong>：這是一種較傳統的傳輸方式，主要指電話線或網路線（如 Ethernet 纜線）儘管這種方式普遍存在，但在高速資料傳輸需求下，銅線的效能可能不如其他選擇</li><li><strong>光纖 (Fiber optic cable)</strong>：這是一種非常快速且穩定的傳輸方式，使用光線來傳輸資料，適合用於長距離或需要高頻寬的情況。光纖的資料傳輸速度遠超過銅線，並且對干擾的抗性也更強。</li><li><strong>無線 (Wireless)</strong>：無線傳輸是最為現代化的方式，像是 Wi-Fi、藍牙、4G&#x2F;5G 等技術，使得設備不需要通過物理的線路就能夠進行資料交換。這種方式給使用者帶來極大的靈活性和便捷性，無論是使用手機、筆記型電腦還是其他設備，都能在無線網路範圍內隨時隨地接入網路。</li></ul></li></ul><p>總的來說，電路就像是「道路」，而數據就是沿著這條「道路」運行的「車輛」，而客戶端與伺服器則是發送和接收這些數據的「起點和終點」。</p><h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul><li><strong>客戶端</strong>是我們用來連接網路的設備</li><li><strong>伺服器</strong>則是儲存和傳送資料的裝置，為客戶端提供服務</li><li><strong>電路</strong>則是連接客戶端和伺服器的「傳輸路徑」，它的質量和種類會直接影響到資料傳輸的速度和穩定性</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>計算機網路</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>計算機網路</tag>
+      
+    </tags>
     
   </entry>
   
